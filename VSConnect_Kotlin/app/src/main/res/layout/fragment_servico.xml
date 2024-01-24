@@ -1,42 +1,78 @@
-x<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-              android:layout_height="150dp"
-              xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:padding="16dp"
-              android:background="@drawable/style_card"
-              android:layout_marginTop="15dp"
-              android:layout_marginBottom="35dp"
->
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
->
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/nomeServico"
-                android:textSize="18dp"
-                android:textColor="@color/azul_marinho"
-                android:fontFamily="@font/titilliumweb_bold"
-                android:text="xxxx"
-                android:maxLength="20"
-                android:layout_marginRight="5dp"
-        />
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/valorServico"
-                android:textSize="18dp"
-                android:textColor="@color/azul_marinho"
-                android:fontFamily="@font/titilliumweb_bold"
-                android:text="R$ 900.00"
-                android:gravity="end"
-        />
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout android:layout_width="match_parent"-->
+<!--              android:layout_height="150dp"-->
+<!--              xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--              android:orientation="vertical"-->
+<!--              android:padding="16dp"-->
+<!--              android:background="@drawable/style_card"-->
+<!--              android:layout_marginTop="15dp"-->
+<!--              android:layout_marginBottom="35dp"-->
+<!--&gt;-->
+<!--<LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--&gt;-->
+<!--        <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:id="@+id/nomeServico"-->
+<!--                android:textSize="18dp"-->
+<!--                android:textColor="@color/azul_marinho"-->
+<!--                android:fontFamily="@font/titilliumweb_bold"-->
+<!--                android:text="xxxx"-->
+<!--                android:maxLength="20"-->
+<!--                android:layout_marginRight="5dp"-->
+<!--        />-->
+<!--        <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:id="@+id/valorServico"-->
+<!--                android:textSize="18dp"-->
+<!--                android:textColor="@color/azul_marinho"-->
+<!--                android:fontFamily="@font/titilliumweb_bold"-->
+<!--                android:text="R$ 900.00"-->
+<!--                android:gravity="end"-->
+<!--        />-->
 
-</LinearLayout>
+<!--</LinearLayout>-->
 
-</LinearLayout>
+<!--</LinearLayout>-->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@+id/nav_servicos">
+
+    <fragment
+            android:id="@+id/nav_editar_imagem"
+            android:name="com.senai.vsconnect_kotlin.views.EditarImagemFragment"
+            android:label="@string/menu_editar_imagem"
+            tools:layout="@layout/fragment_editar_imagem">
+
+    <action android:id="@+id/action_nav_editar_imagem_to_nav_servicos"
+            app:destination="@+id/nav_servicos"/>
+
+    <action
+            android:id="@+id/action_nav_editar_imagem_to_nav_sair"
+            app:destination="@+id/nav_sair"/>
+
+
+    <fragment
+            android:id="@+id/nav_servicos"
+            android:name="com.senai.vsconnect_kotlin.views.ListaServicosFragment"
+            android:label="@string/menu_lista_servicos"
+            tools:layout="@layout/fragment_lista_servicos"
+
+    <action android:id="@+id/action_nav_servicos_to_nav_editar_imagem"
+            app:destination="@+id/nav_editar_imagem"/>
+
+    <action
+            android:id="@+id/action_nav_servicos_to_nav_sair"
+            app:destination="@+id/nav_sair"/>
+    />
+
+</navigation>

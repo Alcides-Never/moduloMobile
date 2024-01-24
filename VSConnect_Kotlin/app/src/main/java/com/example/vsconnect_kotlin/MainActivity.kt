@@ -1,7 +1,9 @@
 package com.example.vsconnect_kotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -41,6 +43,17 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navView.menu.findItem(R.id.nav_sair).setOnMenuItemClickListener { menu ->
+            val mainIntent = Intent(this@MainActivity, LoginActivity::class.java)
+
+            startActivity(mainIntent)
+
+            finish()
+
+            true
+
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
