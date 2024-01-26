@@ -1,8 +1,11 @@
 package com.example.vsconnect_kotlin.apis
 
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 class RetrofitConfig {
     companion object{
-        fun obterInstanciaRetrofit(url: String = "http://172.16.52.84:8099/") : Retrofit{
+        fun obterInstanciaRetrofit(url: String = "http://172.16.52.100:8099/") : Retrofit{
             return Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
