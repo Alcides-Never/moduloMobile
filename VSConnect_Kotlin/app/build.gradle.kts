@@ -37,6 +37,12 @@ android {
 
 dependencies {
 
+    //Picasso
+    implementation ("com.squareup.picasso:picasso:2.8")
+
+    //dependencia que arredonda imagem - circleimageview
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
     //retrofit
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
